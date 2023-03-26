@@ -8,5 +8,8 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
       - ./settings.js:/var/chatgpt-api/settings.js:cached
+      - ./src:/var/chatgpt-api/src
+      - ./bin:/var/chatgpt-api/bin
+      - ./logs:/var/chatgpt-api/logs
     ports:
       - '${APP_PORT:-3000}:3000'

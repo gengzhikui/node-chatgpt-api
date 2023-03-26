@@ -12,4 +12,4 @@ ENV API_HOST=0.0.0.0
 
 EXPOSE 3000
 
-ENTRYPOINT npm start
+ENTRYPOINT npm start >> /var/chatgpt-api/logs/logs.txt

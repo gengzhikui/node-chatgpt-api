@@ -65,7 +65,7 @@ server.post('/conversation', async (request, reply) => {
     if (body.stream === true) {
         onProgress = (token) => {
             if (settings.apiOptions?.debug) {
-                console.debug(token);
+                // console.debug(token);
             }
             if (token !== '[DONE]') {
                 reply.sse({ id: '', data: JSON.stringify(token) });
@@ -102,6 +102,7 @@ server.post('/conversation', async (request, reply) => {
 
         const messageClient = getClient(clientToUseForMessage);
 
+        console.debug(body.message);
         result = await messageClient.sendMessage(body.message, {
             jailbreakConversationId: body.jailbreakConversationId,
             conversationId: body.conversationId ? body.conversationId.toString() : undefined,
